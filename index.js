@@ -1,9 +1,13 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const dbConnect = require('./dbConnect');
+const authRouter = require('./routers/authRouter')
 dotenv.config('./.env');
 
 const app = express();
+
+//router
+app.use('/auth', authRouter); 
 
 app.get('/', (req, res) => {
     return res.status(200).json({
